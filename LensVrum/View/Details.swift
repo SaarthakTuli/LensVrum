@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SceneKit
 
 
 struct Details: View {
@@ -16,6 +17,8 @@ struct Details: View {
     
     @State var loadingContent = false
     @State var selectedColor: Color = Color("p3")
+    
+    @State var open3D = false
     
     var body: some View {
         
@@ -150,7 +153,9 @@ struct Details: View {
                     
                     Spacer(minLength: 0)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        withAnimation(.spring()) { open3D.toggle() }
+                    }) {
                         Text("TRY FRAME IN 3D")
                             .fontWeight(.bold)
                             .foregroundColor(.black)
@@ -184,6 +189,41 @@ struct Details: View {
         })
         .onAppear {
             withAnimation(Animation.spring().delay(0.5)) { loadingContent.toggle() }
+        }
+        .opacity(open3D ? 0 : 1)
+        
+        if open3D {
+            
+            ZStack {
+                Color(selected.image).ignoresSafeArea()
+                
+                VStack( alignment: .leading, spacing: 10) {
+                    
+                    Button(action: {
+                        open3D.toggle()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .padding()
+                            .foregroundColor(.black)
+                            .font(.title)
+                    }
+                    
+                    Spacer()
+                    
+                    SceneView(scene: SCNScene(named: "glasses.usdz"), options: [.autoenablesDefaultLighting, .allowsCameraControl])
+                        .background(Color.clear)
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height
+                         / 2)
+                        .shadow(color: .black, radius: 20, x: 10, y: 10)
+                    
+                    Spacer()
+                    
+                }
+                
+                
+                
+            }
+                
         }
     }
 }
