@@ -191,6 +191,7 @@ struct Details: View {
             withAnimation(Animation.spring().delay(0.5)) { loadingContent.toggle() }
         }
         .opacity(open3D ? 0 : 1)
+        .background(Color.white.ignoresSafeArea())
         
         if open3D {
             
