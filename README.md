@@ -1,6 +1,6 @@
 # LensVrum
 
-A <b>Frontend Animated Ecommerce Shop</b> to buy <b>Glasses</b> using <a href="https://developer.apple.com/xcode/swiftui/">SwiftUI <img src="https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg" alt="icon" height="24" width="24" /></a>
+A <b>Frontend Animated Ecommerce Shop</b> to buy <b>Glasses</b> using <a href="https://developer.apple.com/xcode/swiftui/">SwiftUI <img src="https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg" alt="icon" height="24" width="24" /></a>. You can also look at your glasses in 3D.
 
 
 ## Deployment
